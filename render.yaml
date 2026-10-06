@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: campusconnect-ai
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn run:app --workers 1
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: MASTER_ADMIN_EMAIL
+        value: Agni.adhiban@gmail.com
+      - key: MASTER_ADMIN_USERNAME
+        value: Adhiban
+      - key: MASTER_ADMIN_PASSWORD
+        sync: false
+      - key: MASTER_ADMIN_NAME
+        value: Adhiban
